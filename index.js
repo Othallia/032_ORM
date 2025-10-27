@@ -11,4 +11,13 @@ app.listen(port, () => {
     console.log(`Server started on port 3000`);
 });
 
+b.sequelize.sync()
+    .then((result) => {
+        app.listen(3000, () => {
+            console.log(`Server started on port 3000`);
+        });
+    })
+    .catch((err) => {
+        console.error("Gagal sinkronisasi database:", err);
+    });
 
